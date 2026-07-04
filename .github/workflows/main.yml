@@ -25,7 +25,7 @@ jobs:
           docker system prune -a -f
 
       - name: Cache library
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: Library
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
@@ -53,7 +53,7 @@ jobs:
             find . -name "index.html" -type f 2>/dev/null | head -10
 
       - name: Upload build artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           name: github-pages
           path: Builds/WebGL/WebGL-Build/
@@ -76,4 +76,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
